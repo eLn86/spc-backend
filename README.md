@@ -1,40 +1,61 @@
-# spc-backend
-# Read Me First
-The following was discovered as part of building this project:
+# Scrabble Points Calculator Kotlin REST API backend
 
-* The original package name 'com.spc.spc-backend' is invalid and this project uses 'com.spc.spcbackend' instead.
+This is a REST API backend built with Kotlin and Spring Boot, designed to allow users to save their scores and also
+return the top 10 scores via API response to the spc-web frontend.
+It uses PostgreSQL for data persistence, incorporates Swagger for API documentation, and supports Docker for easy setup
+and deployment.
 
-# Getting Started
+## Features
 
-### Reference Documentation
-For further reference, please consider the following sections:
+- Core REST API functionalities to support spc-web.
+- API documentation with Swagger.
+- Data validation and error handling.
+- Easy setup with Docker.
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.3/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.3/gradle-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.3/reference/htmlsingle/index.html#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.2.3/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Validation](https://docs.spring.io/spring-boot/docs/3.2.3/reference/htmlsingle/index.html#io.validation)
-* [Docker Compose Support](https://docs.spring.io/spring-boot/docs/3.2.3/reference/htmlsingle/index.html#features.docker-compose)
+## Getting Started
 
-### Guides
-The following guides illustrate how to use some features concretely:
+Follow these instructions to get the project up and running on your local machine for development and testing purposes.
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Validation](https://spring.io/guides/gs/validating-form-input/)
+### Prerequisites
 
-### Additional Links
-These additional references should also help you:
+- JDK 11 or newer
+- Docker
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+### Setting Up the Development Environment
 
-### Docker Compose support
-This project contains a Docker Compose file named `compose.yaml`.
-In this file, the following services have been defined:
+1. **Clone the repository**
 
-* postgres: [`postgres:latest`](https://hub.docker.com/_/postgres)
+```bash
+git clone https://github.com/eLn86/spc-backend.git
+cd spc-backend
+```
 
-Please review the tags of the used images and set them to the same as you're running in production.
+### Start PostgreSQL and the Application with Docker
+
+Ensure Docker is installed and running on your machine. Use Docker Compose to start the PostgreSQL database and the
+application:
+
+```bash
+docker-compose up
+```
+
+## API Documentation
+
+The project uses Swagger for API documentation. Once the application is running, you can access the Swagger UI
+at http://localhost:8080/swagger-ui.html to view and interact with the API's endpoints.
+
+## Running Tests
+
+I am using JUnit for unit tests. You can run the tests via the following command:
+
+```bash
+./gradlew test
+```
+
+## Built With
+
+- Kotlin
+- Spring Boot
+- PostgreSQL
+- Swagger
+- Docker
