@@ -14,7 +14,7 @@ services:
     ports:
       - "8080:8080" # Map to port exposed to host machine (8080)
     environment:
-        DB_URL: jdbc:postgresql://db:5432/postgres
+      DB_URL: jdbc:postgresql://localhost:5432/postgres
         PG_USER: postgres
         PG_PASSWORD: postgres
     depends_on:
