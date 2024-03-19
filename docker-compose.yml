@@ -21,11 +21,11 @@ services:
       - db
   db:
     container_name: spc-db
-    image: postgres:latest
+    image: postgres:16.2
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: spc-db
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
     ports:
       - "5432:5432" # default postgres port
     volumes:
