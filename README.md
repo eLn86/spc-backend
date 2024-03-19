@@ -9,8 +9,8 @@ and deployment.
 
 - Core REST API functionalities to support spc-web.
 - API documentation with Swagger.
-- Data validation and error handling.
-- Easy setup with Docker.
+- Server side data validation and error handling.
+- Easy setup and run with Docker.
 
 ## Getting Started
 
@@ -18,8 +18,9 @@ Follow these instructions to get the project up and running on your local machin
 
 ### Prerequisites
 
-- JDK 11 or newer
+- JDK 19.0.1
 - Docker
+- PostgreSQL
 
 ### Setting Up the Development Environment
 
@@ -54,8 +55,6 @@ I am using JUnit for unit tests. You can run the tests via the following command
 
 ## Built With
 
-- Kotlin
-- Spring Boot
-- PostgreSQL
+- Kotlin with Spring Boot (Docker)
+- PostgreSQL (Docker)
 - Swagger
-- Docker
