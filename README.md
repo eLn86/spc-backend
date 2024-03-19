@@ -31,14 +31,25 @@ git clone https://github.com/eLn86/spc-backend.git
 cd spc-backend
 ```
 
-### Start PostgreSQL and the Application with Docker
+2. **Start Docker Desktop**
+   If you don't have docker desktop, you can download it at https://www.docker.com/products/docker-desktop/
+   Or if you have it or docker CLI, you can proceed to the next step.
 
-Ensure Docker is installed and running on your machine. Use Docker Compose to start the PostgreSQL database and the
-application:
 
+3. **Build application**
+
+```bash
+docker-compose build
+```
+
+This process can take quite awhile, so don't ctrl-c (cancel) too early
+
+4. **Run application with docker**
 ```bash
 docker-compose up
 ```
+
+This will start both the Postgresql database and the application, and you are good to go!
 
 ## API Documentation
 
@@ -52,6 +63,9 @@ I am using JUnit for unit tests. You can run the tests via the following command
 ```bash
 ./gradlew test
 ```
+
+Or you can run it through your IDE/Text Editor's Gradle GUI (eg. in IntelliJ, on the right most panel under Gradle >
+spc-backend > Tasks > verification > test)
 
 ## Built With
 
