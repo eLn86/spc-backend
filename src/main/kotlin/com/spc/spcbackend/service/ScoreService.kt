@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service
 
 @Service
 class ScoreService(private val scoreRepository: ScoreRepository) {
-    fun saveScore(score: Score) = scoreRepository.save(score);
+    fun saveScore(score: Score) = scoreRepository.save(score)
 }
