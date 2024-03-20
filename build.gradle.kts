@@ -40,7 +40,7 @@ dependencies {
 
 	liquibaseRuntime("org.liquibase:liquibase-core:4.24.0")
 	liquibaseRuntime("info.picocli:picocli:4.7.5")
-	liquibaseRuntime("org.yaml:snakeyaml:1.33")
+	liquibaseRuntime("org.yaml:snakeyaml:2.2")
 	liquibaseRuntime("org.liquibase.ext:liquibase-hibernate5:4.25.0")
 	liquibaseRuntime("org.postgresql:postgresql")
 	liquibaseRuntime(sourceSets.getByName("main").output)
