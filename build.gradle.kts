@@ -37,6 +37,7 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
 
 	liquibaseRuntime("org.liquibase:liquibase-core:4.24.0")
 	liquibaseRuntime("info.picocli:picocli:4.7.5")
