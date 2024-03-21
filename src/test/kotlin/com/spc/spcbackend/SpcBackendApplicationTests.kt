@@ -12,5 +12,4 @@ class SpcBackendApplicationTests {
     fun contextLoads(context: ApplicationContext) {
         assertThat(context).isNotNull()
     }
-
 }
