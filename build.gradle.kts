@@ -33,6 +33,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	runtimeOnly("org.postgresql:postgresql")
@@ -42,6 +43,7 @@ dependencies {
 	}
 	testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
 	testImplementation("com.ninja-squad:springmockk:4.0.2")
+    testImplementation("org.springframework.security:spring-security-test")
 
 	liquibaseRuntime("org.liquibase:liquibase-core:4.24.0")
 	liquibaseRuntime("info.picocli:picocli:4.7.5")

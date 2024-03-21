@@ -6,6 +6,7 @@ import com.spc.spcbackend.dto.ScoreRequest
 import com.spc.spcbackend.model.Score
 import com.spc.spcbackend.repository.ScoreRepository
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class ScoreService(private val scoreRepository: ScoreRepository) {
@@ -21,6 +22,14 @@ class ScoreService(private val scoreRepository: ScoreRepository) {
             .sortedByDescending { it.score }
             .take(10)
         return toTopTenScoresResponse(topTenScores)
+    }
+
+    fun deleteScoreById(id: UUID) {
+        return scoreRepository.deleteById(id)
+    }
+
+    fun deleteScoresById(ids: List<UUID>) {
+        return scoreRepository.deleteAllById(ids)
     }
 
     private fun toScoreResponse(score: Score): ScoreResponse =
