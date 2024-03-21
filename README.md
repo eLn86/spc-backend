@@ -2,14 +2,13 @@
 
 This is a REST API backend built with Kotlin and Spring Boot, designed to allow users to save their scores and also
 return the top 10 scores via API response to the spc-web frontend.
-It uses PostgreSQL for data persistence, incorporates Springdoc OpenAPI for API documentation, and supports Docker for
-easy setup
-and deployment.
+It uses PostgreSQL for data persistence, incorporates Swagger for API documentation, and supports Docker for
+easy setup and deployment.
 
 ## Features
 
 - Core REST API functionalities to support spc-web.
-- API documentation with Springdoc OpenAPI.
+- API documentation with Swagger.
 - Server side data validation and error handling.
 - Easy setup and run with Docker.
 
@@ -37,19 +36,36 @@ cd spc-backend
 
 3. **Build and Run application with docker**
 ```bash
-docker-compose up --build
+docker-compose -f docker-compose.yml -f docker-compose-test.yml up --build
 ```
 
 This will start both the Postgresql database and the application, and you are good to go!
 
+4. **Making changes to the application code**
+   When you make changes to the application code and want to see them reflected, please rebuild the application:
+
+Bring the services down first.
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose-test.yml down
+```
+
+Then bring them up again.
+
+```bash
+docker-compose -f docker-compose.yml -f docker-compose-test.yml up --build
+```
+
 ## API Documentation
 
 The project uses Swagger for API documentation. Once the application is running, you can access the Swagger UI
-at http://localhost:8080/swagger-ui.html to view and interact with the API's endpoints.
+at http://localhost:8080/swagger-ui/index.html to view and interact with the API's endpoints.
 
 ## Running Tests
 
-I am using JUnit (with Mockito) and Mockito-Kotlin for unit tests. You can run the tests via the following command:
+I am using JUnit MockK and Mockito-Kotlin for unit tests. Please note that there is a test DB spun up in docker
+on port 8001 (you can find the configuration in docker-compose-test.yml). You can run the tests via the following
+command:
 
 ```bash
 ./gradlew test
@@ -63,8 +79,8 @@ I added Mockito-Kotlin as JUnit's Mockito has problems with Mock, Any, `When` me
 ## Built With
 
 - Kotlin with Spring Boot (Dockerised)
-- Mockito (Testing)
-- Mockito-Kotlin (Testing)
+- MockK (Kotlin Testing)
+- Mockito-Kotlin (Kotlin Testing)
 - Liquibase (Database Change Management)
 - PostgreSQL (Database) (Dockerised)
-- Springdoc OpenAPI (API Documentation with OpenAPI specification)
+- Swagger (API Documentation)
