@@ -37,8 +37,11 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(module = "mockito-core")
+	}
 	testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+	testImplementation("com.ninja-squad:springmockk:4.0.2")
 
 	liquibaseRuntime("org.liquibase:liquibase-core:4.24.0")
 	liquibaseRuntime("info.picocli:picocli:4.7.5")
