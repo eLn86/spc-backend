@@ -1,7 +1,8 @@
 package com.spc.spcbackend.service
 
-import ScoreRequest
 import ScoreResponse
+import TopTenScoresResponse
+import com.spc.spcbackend.dto.ScoreRequest
 import com.spc.spcbackend.model.Score
 import com.spc.spcbackend.repository.ScoreRepository
 import org.springframework.stereotype.Service
@@ -14,10 +15,23 @@ class ScoreService(private val scoreRepository: ScoreRepository) {
         return toScoreResponse(savedScore)
     }
 
+    fun getTopTenScores(): TopTenScoresResponse {
+        val allScores: List<Score> = scoreRepository.findAll()
+        val topTenScores = allScores
+            .sortedByDescending { it.score }
+            .take(10)
+        return toTopTenScoresResponse(topTenScores)
+    }
+
     private fun toScoreResponse(score: Score): ScoreResponse =
         ScoreResponse(
             id = score.id!!,
             word = score.word,
             score = score.score
+        )
+
+    private fun toTopTenScoresResponse(scores: List<Score>): TopTenScoresResponse =
+        TopTenScoresResponse(
+            scores = scores
         )
 }
