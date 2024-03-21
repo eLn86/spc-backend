@@ -1,7 +1,6 @@
-import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Pattern
-import jakarta.validation.constraints.Positive
-import jakarta.validation.constraints.Size
+package com.spc.spcbackend.dto
+
+import jakarta.validation.constraints.*
 
 data class ScoreRequest(
     @field:NotBlank(message = "Word cannot be blank.")
@@ -9,7 +8,7 @@ data class ScoreRequest(
     @field:Pattern(regexp = "^[A-Za-z]+$", message = "Word must only contain letters.")
     val word: String,
 
-    @field:NotBlank(message = "Score cannot be blank.")
+    @field:NotNull(message = "Score must be provided.")
     @field:Positive(message = "Score must be a positive number greater than zero.")
     val score: Int
 )
