@@ -1,33 +1,44 @@
 package com.spc.spcbackend.service
 
+import ScoreRequest
 import com.spc.spcbackend.model.Score
 import com.spc.spcbackend.repository.ScoreRepository
+import io.mockk.MockKAnnotations
+import io.mockk.every
+import io.mockk.impl.annotations.InjectMockKs
+import io.mockk.impl.annotations.MockK
+import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito.verify
-import org.mockito.junit.jupiter.MockitoExtension
-import org.mockito.kotlin.whenever
+import java.util.*
 
-@ExtendWith(MockitoExtension::class)
 class ScoreServiceTest {
-    @Mock
+    @MockK
     lateinit var scoreRepository: ScoreRepository
 
-    @InjectMocks
+    @InjectMockKs
     lateinit var scoreService: ScoreService
+
+    @BeforeEach
+    fun setUp() {
+        MockKAnnotations.init(this)
+    }
 
     @Test
     fun `when SaveScore then Repository save is called and Score object is returned`() {
-        val score = Score(word = "example", score = 5)
-        whenever(scoreRepository.save(score)).thenReturn(score)
+        val request = ScoreRequest(word = "example", score = 5)
+        val savedScore = Score(
+            id = UUID.randomUUID(),
+            word = request.word,
+            score = request.score
+        )
+        every { scoreRepository.save(any()) } returns savedScore
 
-        val savedScore = scoreService.saveScore(score)
+        val returnedSaveScore = scoreService.saveScore(request)
 
-        verify(scoreRepository).save(score)
-        assertEquals("example", savedScore.word)
-        assertEquals(5, savedScore.score)
+        verify { scoreRepository.save(any()) }
+        assertEquals("example", returnedSaveScore.word)
+        assertEquals(5, returnedSaveScore.score)
     }
 }
