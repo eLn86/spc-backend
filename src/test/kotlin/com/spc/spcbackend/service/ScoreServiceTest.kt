@@ -1,6 +1,6 @@
 package com.spc.spcbackend.service
 
-import ScoreRequest
+import com.spc.spcbackend.dto.ScoreRequest
 import com.spc.spcbackend.model.Score
 import com.spc.spcbackend.repository.ScoreRepository
 import io.mockk.MockKAnnotations
