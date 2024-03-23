@@ -1,0 +1,1 @@
+class WordAlreadyExistsException(message: String) : RuntimeException(message)
