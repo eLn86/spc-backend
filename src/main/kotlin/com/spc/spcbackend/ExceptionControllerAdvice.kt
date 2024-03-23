@@ -1,4 +1,4 @@
-import com.spc.spcbackend.ErrorMessage
+import com.spc.spcbackend.exceptions.ErrorMessage
 import org.apache.coyote.BadRequestException
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.http.HttpStatus
@@ -10,6 +10,9 @@ import org.springframework.web.client.HttpServerErrorException.InternalServerErr
 
 @ControllerAdvice
 class ExceptionControllerAdvice {
+    @ExceptionHandler(WordAlreadyExistsException::class)
+    fun handleWordAlreadyExistsException(ex: WordAlreadyExistsException): ResponseEntity<Any> =
+        ResponseEntity(ex.message, HttpStatus.CONFLICT)
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleMethodArgumentNotValidException(ex: MethodArgumentNotValidException): ResponseEntity<ErrorMessage> {
