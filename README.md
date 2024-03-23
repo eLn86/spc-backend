@@ -1,6 +1,7 @@
 # Scrabble Points Calculator Kotlin REST API backend
 
-This is a REST API backend built with Kotlin and Spring Boot, designed to allow users to save their scores and also
+This is a REST API backend built with Kotlin, Spring Boot and Gradle, designed to allow users to save their scores and
+also
 return the top 10 scores via API response to the spc-web frontend.
 It uses PostgreSQL for data persistence, incorporates Swagger for API documentation, and supports Docker for
 easy setup and deployment.
@@ -56,6 +57,9 @@ Then bring them up again.
 docker-compose -f docker-compose.yml -f docker-compose-test.yml up --build
 ```
 
+Alternatively, if you want the app to live reload on manual save, check out this
+thread: https://stackoverflow.com/questions/43129647/intellij-idea-spring-boot-hot-reload-on-manual-save
+
 ## API Documentation
 
 The project uses Swagger for API documentation. Once the application is running, you can access the Swagger UI
@@ -81,6 +85,8 @@ I added Mockito-Kotlin as JUnit's Mockito has problems with Mock, Any, `When` me
 - Kotlin with Spring Boot (Dockerised)
 - MockK (Kotlin Testing)
 - Mockito-Kotlin (Kotlin Testing)
-- Liquibase (Database Change Management)
+- Liquibase (Database Change Management) (Dockerised)
 - PostgreSQL (Database) (Dockerised)
 - Swagger (API Documentation)
+- Spring Security
+- Kotlin Gradle DSL
