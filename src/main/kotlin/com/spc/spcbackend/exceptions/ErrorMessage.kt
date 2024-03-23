@@ -1,4 +1,4 @@
-package com.spc.spcbackend
+package com.spc.spcbackend.exceptions
 
 class ErrorMessage(
     val status: Int,
