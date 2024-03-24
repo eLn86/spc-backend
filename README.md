@@ -75,6 +75,12 @@ command:
 ./gradlew test
 ```
 
+Jacoco is used for test coverage. To generate the coverage report, run:
+
+```bash
+./gradlew test jacocoTestReport
+```
+
 Or you can run it through your IDE/Text Editor's Gradle GUI (eg. in IntelliJ, on the right most panel under Gradle >
 spc-backend > Tasks > verification > test)
 
