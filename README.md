@@ -84,7 +84,7 @@ Jacoco is used for test coverage. To generate the coverage report, run:
 Or you can run it through your IDE/Text Editor's Gradle GUI (eg. in IntelliJ, on the right most panel under Gradle >
 spc-backend > Tasks > verification > test)
 
-I added Mockito-Kotlin as JUnit's Mockito has problems with Mock, Any, `When` methods when working with Kotlin
+I added MockK as JUnit's Mockito has problems with Mock, Any, `When` methods when working with Kotlin.
 
 ## Built With
 
